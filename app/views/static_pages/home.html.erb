@@ -109,10 +109,10 @@ As object-oriented comes an opposite to procedural and functional models, let's 
             <div class="col-md-4 col-sm-6">
               <h4 class="heading">Categories</h4>
               <ul>
-                <li><a href="category.html">Ruby</a></li>
-                <li><a href="category.html">Deploying and Unix Servers</a></li>
-                <li><a href="category.html">Heroku</a></li>
-                <li><a href="category.html">Suse</a></li>
+                <li><a href="<%= about_path %>">Ruby</a></li>
+                <li><%= link_to "Deploying and Unix Servers", 'deploy' %></li>
+                <li><%= link_to "Heroku", 'heroku' %></li>
+                <li><%= link_to "Suse", 'suse' %></li>
               </ul>
             </div>
             <div class="col-md-4 col-sm-6">
@@ -124,17 +124,7 @@ As object-oriented comes an opposite to procedural and functional models, let's 
           </div>
         </div>
       </div>
-      <div class="footer__copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <p>Github</p>
-            </div>
-            <div class="col-md-6">
-              <p class="credit">Code <a href="https://bootstrapious.com/e-commerce-templates" class="external">miarhost</a></p>
-              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-            </div>
-          </div>
+         </div>
         </div>
       </div>
     </footer>

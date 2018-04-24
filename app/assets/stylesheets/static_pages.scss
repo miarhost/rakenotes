@@ -949,15 +949,14 @@ FOOTER AND COPYRIGHT
 .footer__block p.social {
   text-align: left;
 }
-.footer__copyright {
-  background: #333333;
+.footer__custom {
   color: #ccc;
   padding: 20px 0;
   font-size: 12px;
   line-height: 28px;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
-.footer__copyright p {
+.footer__custom p {
   margin: 0;
 }
 @media (max-width: 991px) {
