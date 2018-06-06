@@ -1,10 +1,10 @@
 module ApplicationHelper
-		def full_title(page_title = '')
-    base_title = "Rakenotes"
+		def provide_title(page_title = '')
+    main_title = "Rakenotes, about Ruby & Deploy"
     if page_title.empty?
-    	base_title
+    	main_title
     else
-     page_title + " | " + base_title 
+     page_title + " | " + main_title 
     end
     end
 end
