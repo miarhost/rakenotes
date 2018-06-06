@@ -1,15 +1,21 @@
 require 'rails_helper'
 
-Rspec.describe StaticPagesController, type: :controller do
+RSpec.describe StaticPagesController, type: :controller do
 
-it "gets home" do
-visit home_path
-expect(:title).to_equal "Home | Rakenotes, about Ruby & Deploy"
+describe "get #HOME" do
+ it "gets home" do
+ visit home_url
+ expect(:title).to_equal "Home | Rakenotes, about Ruby & Deploy"
+ expect(response).to be_success
+ end
 end
 
-it "gets to about page" do
-visit about_path
-expect(:title).to_equal "About |  Rakenotes, about Ruby & Deploy"
+describe "get #ABOUT" do
+ it "gets to about page" do
+ visit about_url
+ expect(:title).to_equal "About |  Rakenotes, about Ruby & Deploy"
+ expect(response).to be_success
+ end
 end
 
 end
