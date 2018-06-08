@@ -23,7 +23,7 @@ class PostsController < ApplicationController
    	else
    	redirect_to user_posts_url(@post.user_id)
     end
-  end
+  
  end
 
  def update
