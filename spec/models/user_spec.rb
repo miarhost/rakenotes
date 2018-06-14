@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
 
   it "should validate password confirmation" do
     expect(subject).to validate_presence_of(:password_confirmation)
-    expect(password_confirmation).to eql(:password)
+    expect(password_confirmation).to eq(:password)
     expect(response).to be_success
   end
 
