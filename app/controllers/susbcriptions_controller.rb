@@ -1,0 +1,24 @@
+class SubscriptionController < ApplicationController
+
+ skip_before_action :verify_authenticity_token
+
+ def create
+  @subscription = Subscription.new(subscription_params)
+  if @subscription.save
+  	flash[:success] = "You got subscription"
+  ActionMailer::SubscriptionMailer.subscribe(subscription_params[:email]).deliver_later
+  redirect_to home_path
+  end
+
+  def show
+  	@subscription = Subscription.find([:id])
+  end
+
+private
+
+  def subscription_params
+  	params.require(:subscription).permit(:email)
+  end
+
+ end
+
