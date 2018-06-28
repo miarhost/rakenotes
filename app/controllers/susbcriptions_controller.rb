@@ -9,6 +9,7 @@ class SubscriptionController < ApplicationController
   ActionMailer::SubscriptionMailer.subscribe(subscription_params[:email]).deliver_later
   redirect_to home_path
   end
+ end
 
   def show
   	@subscription = Subscription.find([:id])
