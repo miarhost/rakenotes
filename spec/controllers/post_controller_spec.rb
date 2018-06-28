@@ -4,7 +4,7 @@ RSpec.describe PostsController, type: :controller do
  
  before do
   it "set post with params" do
-   expect(:valid_attributes).to eql Post.new(title: "Example", body: "Something by user")
+   expect(:valid_attributes).to eql User.post.build(title: "Example", body: "Something by user")
   end 
  end
  
@@ -17,20 +17,32 @@ RSpec.describe PostsController, type: :controller do
    end
 
   describe "POST #create" do
-  	context "with valid parameters" do
+  	context "with valid attributes" do
 
   	it "create new Post" do
   	 expect {
-  	 	post :create, params: {post: valid_parameters}
+  	 	post :create, params: {post: valid_attributes}
   	 }
   	 expect(response).to be_success
   	end
 
   	it "redirects to created post" do
-  		expect {  post :create, params: {post: valid_parameters}}
+  		expect {  post :create, params: {post: valid_attributes}}
   		expect(response).to redirect_to(User.post.last)
      end
     end
    end
+
+  describe "POST #update" do
+    context "post with valid attributes exists" do
+      @post = Post.find([:id])
+      it "updates existing post and respond success" do
+        expect {
+         post :update, params: {post: valid_attributes}
+        }
+      expect(responce).to assign_to(:post)
+    end
+   end
+ end
 
 end

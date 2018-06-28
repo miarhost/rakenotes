@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ImageUploader, type: :uploader do
 
 before do
- subject { User.new(:name => "User", :email: "user@example.com", :image => nil) }
+ subject { User.new(:name => "User", :email => "user@example.com", :image => nil) }
 end
 
 before (:each) do
