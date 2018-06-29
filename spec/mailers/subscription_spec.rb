@@ -1,15 +1,17 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe SubscriptionMailer, type: :mailer do
+RSpec.describe SubscriptionMailer,type:mailer do
 
-describe "subscribe" do
- let(:subscription) { create(:subscription, email: "user@example.com") }
-
-
-  it "renders the mail" do
- 	expect(mail.subject).to eq("You got a subscription")
-    expect(mail.to).to eq("user@example.com")
-    expect(mail.body).to match('Your subscription on rake articles is set on email #{@email} ')
-  end
+ def create_subscription(options)
+  subscription = Subscription.new(options)
+  subscription.set_status(options[:status])
+  subscription
  end
+
+ 
+ it 'should send mail when save' do
+  subscription = create_subscription(:status => 'ok')
+  ActionMailer::SubscriptionMailer.subscribe(subscription(options[:email]))
+ end
+
 end
