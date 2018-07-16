@@ -12,7 +12,7 @@ before (:each) do
 end
 
 it "should upload image" do
- expect(@imageuploader).to :upload(Image.new :image_url)
+ expect(@imageuploader).to :upload(User.new :image_url)
  expect(responce).to have_http_status(200)
 end
 

@@ -11,7 +11,7 @@ RSpec.describe PostsController, type: :controller do
  describe "GET #index" do
  	it "returns a success responce" do
      post = User.posts.build! valid_attributes
-     get: :index 
+     get :index 
      expect(responce).to be_success
     end
    end
@@ -35,7 +35,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST #update" do
     context "post with valid attributes exists" do
-      @post = Post.find([:id])
+      @post = Post.find(params[:id])
       it "updates existing post and respond success" do
         expect {
          post :update, params: {post: valid_attributes}
