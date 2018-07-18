@@ -34,6 +34,7 @@ before_action :authenticate_user!
    redirect_to new_user_session_url
   end
  end
+end
 
  def destroy
  @message = Message.find(params[:id])
