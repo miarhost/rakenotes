@@ -42,4 +42,14 @@ RSpec.describe User, type: :model do
   
  end
 
+ describe "User login" do
+
+  it "should not login with invalid credentials" do
+    get login_path
+    post login_path, params: {session: {email: '@user.email', password: "123"}}
+   expect(response).to redirect_to @user
+  end
+ end
+end
+
 end
