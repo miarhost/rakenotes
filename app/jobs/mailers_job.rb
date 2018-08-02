@@ -1,7 +1,7 @@
 class MailersJob < ApplicationJob
   queue_as :default
 
-   rescue_from(ErrorLoadingSite) do
+   rescue_from(ScriptError::LoadError) do
     retry_job wait: 25.minutes, queue: :low_priority
    end
 
