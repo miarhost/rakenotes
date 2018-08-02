@@ -1,7 +1,7 @@
 class MailersJob < ApplicationJob
   queue_as :default
 
-   rescue do 
+   rescue_from(ErrorLoadingPage) do
     retry_job wait: 25.minutes, queue: :low_priority
    end
 
