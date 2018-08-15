@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'admins/new'
+
+  get 'admins/index'
+
   resources :users
 
 	root 'static_pages#home'

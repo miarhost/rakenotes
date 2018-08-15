@@ -1,0 +1,41 @@
+<div class="form_header">Sign up an admin</div>
+<div class="forms">
+<%= form_with(model: admin, local: true) do |form| %>
+<% if admin.errors.any? %>
+ <div id="errors explanation">
+ 	<h4><%= pluralize(admin.errors.count, "errors") %> prohibit admin from being saved</h4>
+    <ul>
+    <% admin.errors.full_messages.each do |error| %>
+     <li><%= message %></li>
+    <% end %>
+   </ul>
+   <% end %>
+ </div>
+
+<div class="row">
+ <div class="col-sm-6">
+ 	<%= form.label :name %>
+ 	<%= form.text_field :name, id: :admin_name %>
+ </div>
+
+ <div class="col-sm-6">
+ 	<%= form.label :email %>
+ 	<%= form.text_field :email, id: :admin_email %>
+ </div>
+
+ <div class="col-sm-6">
+ 	<%= form.label :password %>
+ 	<%= form.text_field :password, id: :admin_password %>
+ </div>
+
+ <div class="col-sm-6">
+  <%= form.label :password_confirmation %>
+  <%= form.text_field :password_confirmation, id: :admin_password_confirmation %>
+ </div>
+
+ <div class="actions">
+  <%= form.button 'Sign Up' %>
+ </div>
+<% end %>
+ </div>
+</div>
