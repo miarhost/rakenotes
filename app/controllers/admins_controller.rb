@@ -58,7 +58,7 @@ def set_admin
 end
 
 def admin_params
- params.require(:admin).permit(:name, :email, :password_digest)
+ params.require(:admin).permit(:name, :email, :password)
 end
 
 end
