@@ -1,6 +1,7 @@
    class Admins::SessionsController < ApplicationController::SessionsController
    
    def new
+    super
    end
    
    def login(admin)

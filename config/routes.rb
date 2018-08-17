@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
+  get "admins/login", to: 'admins/sessions#new'
+  post "admins/login", to: 'admins/sessions#create'
+
+
   resources :admins 
-    
-
-  
-      get "admins/login", to: 'admins/sessions#new'
-      post "admins/login", to: 'admins/sessions#create'
-
+   
   resources :users
 
 	root 'static_pages#home'
