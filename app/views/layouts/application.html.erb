@@ -6,9 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      </head>
+    
 
-  <body>
+ 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -45,20 +45,31 @@
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<%= home_path %>">Home</a></li>
-              <li><a href="<%= about_path %>">Text page</a></li>
+              <li class="nav-item active">
+                <a href="<%= home_path %>">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="<%= about_path %>">Text page</a>
+              </li>
             
-              <li><a href="<%= literature_path %>">Source List</a></li>
-              <% if !signed_in? %>       
-              <li><a href="<%= new_user_path %>">Register</a></li>
-              <li><a href="<%= login_path %>">Log in</a></li>
-              <% else %>
-              <li><a href="<%= logout_path %>">Log out</a></li>
-              <li><a href="<%= user_path %>">Profile</a></li>
-              <% end %>
-            </ul>
-       
-         
+               <li class="nav-item">
+                <a href="<%= literature_path %>">Source List</a>
+              </li>
+              
+              <li class="nav-item-dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               Account <b class="caret"></b></a>
+                <div class="dropdown-menu">
+                <% if !signed_in? %>
+                 <a class="dropdown-item" href="<%= new_user_path %>">Register</a>
+                 <a class="dropdown-item" href="<%= login_path %>">Log in</a>
+                <% else %>
+                 <a class="dropdown-item" href="<%= link_to 'Log out', logout_path, method: :delete %>"></a>
+                 <a class="dropdown-item" href="<%= current_user %>">Profile</a>
+                 <a class="dropdown-item" href="#">Settings</a>
+                <% end %>
+               </div>
+            </li>
           </div>
         </div>
       </div>

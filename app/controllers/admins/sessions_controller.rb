@@ -4,7 +4,7 @@
     super
    end
    
-   def login(admin)
+   def log_in(admin)
     session[:admin_id] = admin.id
    end
    
@@ -20,7 +20,7 @@
    def create
    	admin = Admin.find_by(id: session[:admin_id])
     if admin && admin.authenticate(params[:session][:password]) 
-    login admin
+    log_in admin
     redirect_to admin
     else
     flash.now[:danger] = "Invalid password or/and email"
