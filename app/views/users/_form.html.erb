@@ -31,7 +31,16 @@
     <%= form.text_field :password_confirmation, id: :user_password_confirmation %>
   </div>
 
+  <div class="field">
+    <%= form.label :remember_me, class: "checkbox-inline" do %>
+    <%= form.check_box :remember_me %>
+    <span>Remember me on this computer</span>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<p> New here? <%= link_to 'Sign Up', new_user_path %></p>
