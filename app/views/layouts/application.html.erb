@@ -14,21 +14,8 @@
     <meta name="robots" content="all,follow">
       <!-- Google fonts - Roboto-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700">
-        <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Font Awesome and Pixeden Icon Stroke icon fonts-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
-    <!-- Google fonts - Roboto-->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700">
-    <!-- lightbox-->
-    <link rel="stylesheet" href="css/lightbox.min.css">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
-    <!-- Favicon-->
-<link rel="shortcut icon" href="favicon.png">
+
+
     <!-- Jquery-->
    <%= javascript_include_tag('jquery.js') %>
   <%= javascript_include_tag('jquery.min.js') %>
@@ -57,7 +44,7 @@
                <li class="nav-item">
                 <a href="<%= literature_path %>">Source List</a>
               </li>
-              
+           <!--Admin's section -->  
               <li class="nav-item-dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                Account <b class="caret"></b></a>
@@ -73,6 +60,23 @@
                 <% end %>
                </div>
             </li>
+           <!--Admin's section -->
+              <li class="nav-item-dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               Admin's <b class="caret"></b></a>
+                <div class="dropdown-menu">
+                <% if admin_in? %>
+                 <%= link_to "Log out", admins_logout_path, method: :delete, class:"dropdown-item" %>
+                 <a class="dropdown-item" href="<%= current_admin %>">Profile</a>
+                 <a class="dropdown-item" href="#">Settings</a>
+
+                <% else %>
+                 <a class="dropdown-item" href="<%= new_admin_path %>">Register</a>
+                 <a class="dropdown-item" href="<%= admins_login_path %>">Log in</a>
+                <% end %>
+               </div>
+            </li>
+
           </div>
         </div>
       </div>

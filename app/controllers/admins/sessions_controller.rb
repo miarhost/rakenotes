@@ -3,29 +3,21 @@
    def new
     super
    end
-   
-   def log_in(admin)
-    session[:admin_id] = admin.id
-   end
-   
-    def current_admin
-     @current_admin ||= Admin.find_by(id: session[:admin_id])
-    end
-
-   def signed_in?
-    !current_admin.nil?
-   end
-
-  
+     
    def create
-   	admin = Admin.find_by(id: session[:admin_id])
+   	admin = Admin.find_by(email: params[:session][:email].downcase)
     if admin && admin.authenticate(params[:session][:password]) 
-    log_in admin
+    admin_log_in admin
     redirect_to admin
     else
     flash.now[:danger] = "Invalid password or/and email"
     render 'new'
     end 
+   end
+
+   def destroy 
+    admin_logout if admin_in?
+    redirect_to root_url
    end
 
   end

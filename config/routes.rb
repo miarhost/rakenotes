@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get "admins/login", to: 'admins/sessions#new'
   post "admins/login", to: 'admins/sessions#create'
-
+  delete 'admins/logout', to: 'admins/sessions#destroy'
 
   resources :admins 
    

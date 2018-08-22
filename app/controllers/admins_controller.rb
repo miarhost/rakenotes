@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-	before_action :set_admin, only: [:show, :edit, :update, :destroy]
+	#before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   def new
   	@admin = Admin.new
@@ -22,6 +22,7 @@ class AdminsController < ApplicationController
   	@admin = Admin.new(admin_params)
    	respond_to do |format|
   	 if	@admin.save
+      admin_log_in @admin
   	  format.html { redirect_to @admin , notice: "New admin signed up" }
   	  format.json { render :show, status: :created, location: @admin }
   	 else
@@ -53,12 +54,12 @@ end
 
  private
 
-def set_admin
- @admin = Admin.find(params[:id])
-end
+#def set_admin
+# @admin = Admin.find(params[:id])
+#end
 
 def admin_params
- params.require(:admin).permit(:name, :email, :password)
+ params.require(:admin).permit(:name, :email, :password, :password_comfirmation)
 end
 
 end

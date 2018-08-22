@@ -14,11 +14,15 @@ has_secure_password
 	length: { maximum: 255 },
 	format: { with: VALID_EMAIL_REGEX }
     
-	has_secure_password
-
 	validates :password, presence: true, length: { minimum: 6 }
 
-	has_many :posts, dependent: :destroy
-	has_many :messages, through: :posts, dependent: :destroy
+	def Admin.digest(string)
+     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+    end
+
+    def Admin.new_token
+    	SecureRandom.urlsafe_base64
+    end
 
 end
