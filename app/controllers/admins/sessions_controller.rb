@@ -4,6 +4,7 @@
     super
    end
      
+
    def create
    	admin = Admin.find_by(email: params[:session][:email].downcase)
     if admin && admin.authenticate(params[:session][:password]) 

@@ -44,7 +44,7 @@
                <li class="nav-item">
                 <a href="<%= literature_path %>">Source List</a>
               </li>
-           <!--Admin's section -->  
+           <!--User's section -->  
               <li class="nav-item-dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                Account <b class="caret"></b></a>
@@ -65,7 +65,7 @@
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                Admin's <b class="caret"></b></a>
                 <div class="dropdown-menu">
-                <% if admin_in? %>
+                <% if logged_in? %>
                  <%= link_to "Log out", admins_logout_path, method: :delete, class:"dropdown-item" %>
                  <a class="dropdown-item" href="<%= current_admin %>">Profile</a>
                  <a class="dropdown-item" href="#">Settings</a>
